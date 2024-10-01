@@ -1,13 +1,38 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.slidercontents {
+  height: 480px;
+  background-image: url(https://www.ajou.ac.kr/_attach/ajou/image/2022/10/EHDyUsiwqsRZhtCnCOXvLQcKcO.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.slidercontents2 {
+  height: 480px;
+  background-image: url(https://grad.ajou.ac.kr/_attach/ajou/image/2021/12/lPrNrNRHiJZpZzeqrgFXTnYIoM.gif);
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.wrapText {
+  margin-left: 12%;
 }
