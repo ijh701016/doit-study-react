@@ -5,8 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+
+import Counter from "./Counter";
+import Post from "./Post";
 
 // 과제: bootstrap이나 css등 아무거나 사용하여 홈페이지나 블로그 홈을 만들어보기
 
@@ -65,41 +66,11 @@ function Slide() {
 function Posts() {
   return (
     <div className="d-flex justify-content-around">
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>게시글 1</Card.Title>
-          <Card.Text>어쩌고 저쩌고</Card.Text>
-          <Button variant="primary">이동하기</Button>
-        </Card.Body>
-      </Card>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>게시글 2</Card.Title>
-          <Card.Text>어쩌고 저쩌고</Card.Text>
-          <Button variant="primary">이동하기</Button>
-        </Card.Body>
-      </Card>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>게시글 3</Card.Title>
-          <Card.Text>어쩌고 저쩌고</Card.Text>
-          <Button variant="primary">이동하기</Button>
-        </Card.Body>
-      </Card>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>게시글 4</Card.Title>
-          <Card.Text>어쩌고 저쩌고</Card.Text>
-          <Button variant="primary">이동하기</Button>
-        </Card.Body>
-      </Card>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>게시글 5</Card.Title>
-          <Card.Text>어쩌고 저쩌고</Card.Text>
-          <Button variant="primary">이동하기</Button>
-        </Card.Body>
-      </Card>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
     </div>
   );
 }
@@ -110,6 +81,8 @@ function App() {
       <NavigationBar></NavigationBar>
       <Slide></Slide>
       <Posts></Posts>
+
+      <Counter></Counter>
     </div>
   );
 }
