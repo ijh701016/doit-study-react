@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import Container from "react-bootstrap/Container";
@@ -75,6 +77,36 @@ function Posts() {
   );
 }
 
+function Profile() {
+  const [login, setLogin] = useState(false);
+  const user = {
+    name: "임정훈",
+    id: "ijh701016",
+    mail: "ijh701016@ajou.ac.kr",
+  };
+
+  function handleLoginClick() {
+    setLogin(!login);
+  }
+  return (
+    <div>
+      {login ? (
+        <div>
+          <strong>{user.name}</strong>
+          <p>아이디: {user.id}</p>
+          <p>메일: {user.mail}</p>
+        </div>
+      ) : (
+        ""
+      )}
+      <button onClick={handleLoginClick}>
+        {!login ? "로그인" : "로그아웃"}
+      </button>
+    </div>
+  );
+}
+
+// 버튼 하나 만들어서 isLogin변수로 버튼 누르면 카드들 쫘라락 뜨고, 아니면 꺼지고 하기
 function App() {
   return (
     <div className="App">
@@ -83,6 +115,7 @@ function App() {
       <Posts></Posts>
 
       <Counter></Counter>
+      <Profile></Profile>
     </div>
   );
 }
