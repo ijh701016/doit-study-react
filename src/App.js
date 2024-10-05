@@ -1,69 +1,12 @@
-import { useState } from "react";
-
 import "./App.css";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Carousel from "react-bootstrap/Carousel";
+import NavigationBar from "./components/NavigationBar";
+import Slide from "./components/Slide";
+import Post from "./components/Post";
 
-import Counter from "./Counter";
-import Post from "./Post";
-
-// 과제: bootstrap이나 css등 아무거나 사용하여 홈페이지나 블로그 홈을 만들어보기
-
-function NavigationBar() {
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">내 블로그</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">홈</Nav.Link>
-            <Nav.Link href="#link">전체 게시글</Nav.Link>
-            <NavDropdown title="더 보기" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">프로필</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">asdf</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
-
-function Slide() {
-  return (
-    <Carousel>
-      <Carousel.Item>
-        <div className="slidercontents">
-          <div className="wrapText">
-            <h1>슬라이드 1</h1>
-            <div className="d-none d-md-block">
-              <p>
-                Carousel 컴포넌트를 사용하여 슬라이드를 적용했습니다.
-                Carousel컴포넌트 안에 Carousel.Item컴포넌트를 함께 사용해야
-                합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div className="slidercontents2">
-          <div className="wrapText">
-            <h1>슬라이드 2</h1>
-            <div className="d-none d-md-block">
-              <p>사진과 배경설정 등은 index.css안에 css코드로 해결했습니다.</p>
-            </div>
-          </div>
-        </div>
-      </Carousel.Item>
-    </Carousel>
-  );
-}
+import Counter from "./components/Counter";
+import Profile from "./components/Profile";
+import Card from "./components/Card";
 
 function Posts() {
   return (
@@ -77,37 +20,30 @@ function Posts() {
   );
 }
 
-function Profile() {
-  const [login, setLogin] = useState(false);
-  const user = {
-    name: "임정훈",
-    id: "ijh701016",
-    mail: "ijh701016@ajou.ac.kr",
-  };
-
-  function handleLoginClick() {
-    setLogin(!login);
-  }
-  return (
-    <div>
-      {login ? (
-        <div>
-          <strong>{user.name}</strong>
-          <p>아이디: {user.id}</p>
-          <p>메일: {user.mail}</p>
-        </div>
-      ) : (
-        ""
-      )}
-      <button onClick={handleLoginClick}>
-        {!login ? "로그인" : "로그아웃"}
-      </button>
-    </div>
-  );
-}
-
-// 버튼 하나 만들어서 isLogin변수로 버튼 누르면 카드들 쫘라락 뜨고, 아니면 꺼지고 하기
 function App() {
+  const posts = [
+    {
+      title: "도수 낮춘 후레쉬",
+      description:
+        "원래 16.5%였던거 같은데 16도로 바뀐거 같다. 언제부터 그랬는지 눈치채지 못해 당황..",
+    },
+    {
+      title: "중간을 모르는 날씨",
+      description:
+        "2주 전만해도 죽고싶은 여름이였는데, 지금은 겨울 미리보기이다. 심지어 일교차도 미친거 같다.",
+    },
+    {
+      title: "스터디 3주차",
+      description: "벌써 반 이상 왔다. 심지어 다음주면 마지막주이다.",
+    },
+    {
+      title: "얼마 남지 않은 시험",
+      description:
+        "시험이 얼마 남지 않았다. 지금부터 열심히 하면 되지만 확통은 아닌거 같다.",
+    },
+  ];
+
+  const listItems = posts.map((post) => post);
   return (
     <div className="App">
       <NavigationBar></NavigationBar>
@@ -116,6 +52,11 @@ function App() {
 
       <Counter></Counter>
       <Profile></Profile>
+      <div>
+        {posts.map((post, index) => (
+          <Card post={post} i={index + 1}></Card>
+        ))}
+      </div>
     </div>
   );
 }

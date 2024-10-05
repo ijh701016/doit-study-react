@@ -6,7 +6,6 @@ function Counter() {
   function handleButtonClick() {
     setCount(count + 1);
   }
-
   return <button onClick={handleButtonClick}>클릭 횟수: {count}</button>;
 }
 
